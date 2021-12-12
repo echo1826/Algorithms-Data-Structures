@@ -91,5 +91,22 @@ class SinglyLinkedList {
         node.val = val;
         return true;
     }
-    
+    insert(val, index) {
+        if(index < 0 || index > this.length) {
+            return false;
+        }
+        if(index === this.length) { 
+            //* !! operator coerces the truthy or falsey values given from push and unshift to actual boolean values
+            return !!this.push(val);
+        }
+        if(index === 0) {
+            return !!this.unshift(val);
+        }
+        let newNode = new Node(val);
+        let pre = this.get(index - 1);
+        let temp = pre.next;
+        pre.next = newNode;
+        newNode.next = temp;
+        return true;
+    }
 }
