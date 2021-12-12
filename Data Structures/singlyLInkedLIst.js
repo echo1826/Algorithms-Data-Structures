@@ -1,6 +1,6 @@
 // piece of data - val
 //reference to next node - next
-
+// node definition in a singly linked list
 class Node {
     constructor(val) {
         this.val = val;
@@ -8,7 +8,7 @@ class Node {
     }
 }
 
-// 
+
 class SinglyLinkedList {
     constructor() {
         this.head = null;
@@ -92,14 +92,14 @@ class SinglyLinkedList {
         return true;
     }
     insert(val, index) {
-        if(index < 0 || index > this.length) {
+        if (index < 0 || index > this.length) {
             return false;
         }
-        if(index === this.length) { 
+        if (index === this.length) {
             //* !! operator coerces the truthy or falsey values given from push and unshift to actual boolean values
             return !!this.push(val);
         }
-        if(index === 0) {
+        if (index === 0) {
             return !!this.unshift(val);
         }
         let newNode = new Node(val);
@@ -111,13 +111,13 @@ class SinglyLinkedList {
         return true;
     }
     remove(index) {
-        if(index < 0 || index > this.length) {
+        if (index < 0 || index > this.length) {
             return undefined;
         }
-        if(index === this.length - 1) {
+        if (index === this.length - 1) {
             return this.pop(index);
         }
-        if(index === 0) {
+        if (index === 0) {
             return this.shift(index);
         }
         let pre = get(index - 1);
@@ -132,7 +132,7 @@ class SinglyLinkedList {
         this.tail = node;
         let prev = null;
         let next;
-        for(let i = 0; i < this.length; i++) {
+        for (let i = 0; i < this.length; i++) {
             next = node.next;
             node.next = prev;
             prev = node;
