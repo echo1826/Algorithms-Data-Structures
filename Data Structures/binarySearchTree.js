@@ -58,4 +58,51 @@ class BinarySearchTree {
         if(!foundFlag) return undefined;
         return current;
     }
+    breadthFirstSearch() {
+        let queue = [];
+        let visited = [];
+        let dequeued;
+        queue.push(this.root);
+        while(queue.length) {
+            dequeued = queue.shift();
+            visited.push(dequeued);
+            if(dequeued.left) {
+                queue.push(dequeued.left);
+            }
+            if(dequeued.right) {
+                queue.push(dequeued.right);
+            }
+        }
+        return visited;
+    }
+    dfsPreOrder() {
+        let visited = [];
+        const traverse = (node) => {
+            visited.push(node.val);
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return visited;
+    }
+    dfsPostOrder() {
+        let visited = [];
+        const traverse = (node) => {
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+            visited.push(node.val)
+        }
+        traverse(this.root);
+        return visited;
+    }
+    dfsInOrder() {
+        let visited = [];
+        const traverse = (node) => {
+            if(node.left) traverse(node.left);
+            visited.push(node.val);
+            if(node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return visited;
+    }
 }
