@@ -1,7 +1,7 @@
 // Write a function called sameFrequency. Given two positive integers, findout if the two numbers have the same frequency of digits.
 // Solution must have the following complexities: Time: O(n)
 
-//function that takes in two values
+// function that takes in two values
 // check each digit to make sure they have the same frequency of digits, don't care about the order
 // return true if same frequency, false if not
 // we only care about two positive integers, so no floats and negatives

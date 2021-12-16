@@ -16,7 +16,7 @@ function validAnagram(str1, str2){
             return false;
         }
     }
-    return true
+    return true;
 }
 
 // SOLUTION
