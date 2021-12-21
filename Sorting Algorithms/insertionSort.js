@@ -4,11 +4,14 @@ function insertionSort(arr) {
         // start at the end of array to compare because you want to move the bigger value up rather than the value you're holding onto
         // second condition is added in the for loop to end the loop when you find the correct position in the array to insert the value that's being held onto
         for (var j = i - 1; j > -1 && arr[j] > currentValue; j--) {
+            console.log(arr[j], arr[j+1]);
             // continue to move the values up by one position until this loop hits one of those conditions
             arr[j + 1] = arr[j];
+            console.log(arr[j], arr[j+1]);
         }
         // after the inner loop is finished that means you've found the correct position to store currentValue
         // console.log(arr[j+1]);
+        console.log(currentValue);
         arr[j + 1] = currentValue;
     }
     return arr;
@@ -27,5 +30,5 @@ function insertionSort(arr) {
     }
     return arr;
 }
-
+//                         1  2  9   9  76
 console.log(insertionSort([2, 1, 9, 76, 4]));
