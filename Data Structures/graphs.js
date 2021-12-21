@@ -27,4 +27,44 @@ class Graph {
         // delete is a reserved word in javascript that can delete properties of an object
         delete this.adjacencyList[vertex];
     }
+    depthFirstRecursive(startVertex) {
+        let result = [];
+        let visited = {};
+        const adjacencyList = this.adjacencyList;
+        const helper = (vertex) => {
+            if(!vertex) return null;
+            visited[vertex] = true;
+            result.push(vertex);
+            // for(let neighbor of adjacencyList[vertex]) {
+            //     if(!visited[neighbor]) return depthFirstRecusive(neighbor);
+            // }
+            adjacencyList[vertex].forEach(neighbor => {
+                if(!visited[neighbor]) return depthFirstRecursive(neighbor);
+            })
+        }
+        helper(startVertex);
+        return result;
+    }
+    depthFirstIterative(startVertex) {
+        let vertices = [startVertex];
+        let result = [];
+        let visited = {};
+        vertices.push(startVertex);
+        visited[startVertex] = true;
+        while(vertices.length > 0) {
+            let vertex = vertices.pop();
+            result.push(vertex);
+            this.adjacencyList[vertex].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    vertices.push(neighbor);
+                }
+            })
+            
+        }
+        return result;
+    }
+    breadthFirst(startVertex) {
+        
+    }
 }
