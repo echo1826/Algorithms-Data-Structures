@@ -17,7 +17,7 @@ function insertionSort(arr) {
     return arr;
 }
 
-insertionSort([2, 1, 4, 3, 7, 5, 6]);
+// insertionSort([2, 1, 4, 3, 7, 5, 6]);
 
 function insertionSort(arr) {
     var currentVal;
@@ -30,5 +30,12 @@ function insertionSort(arr) {
     }
     return arr;
 }
-//                         1  2  9   9  76
+//                         2  2
+//                         1
+//                         1, 2, 9  
+//                         1, 2, 9, 76
+//                         1, 2, 9, 76, 4
+//                         1, 2, 9, 76, 76
+//                         1, 2, 9, 9, 76
+//                         1, 2, 4, 9, 76
 console.log(insertionSort([2, 1, 9, 76, 4]));
