@@ -3,7 +3,7 @@ function merge(arr, arr2) {
     let i = 0;
     let j = 0;
     let results = [];
-    while (i < arr.length || j < arr2.length) {
+    while (i < arr.length && j < arr2.length) {
         if (arr[i] < arr2[j]) {
             results.push(arr[i]);
             i++;
@@ -29,11 +29,11 @@ function mergeSort(arr) {
     }
     let middle = Math.floor(arr.length/2);
     let firstHalfArr = mergeSort(arr.slice(0, middle));
-    let secondHalfArr = mergeSort(arr.slice(middle, arr.length - 1));
+    let secondHalfArr = mergeSort(arr.slice(middle));
     return merge(firstHalfArr, secondHalfArr);
 }
 
-// Recrusive Merge Sort
+
 function mergeSort(arr){
     if(arr.length <= 1) return arr;
     let mid = Math.floor(arr.length/2);
