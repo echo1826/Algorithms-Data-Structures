@@ -22,6 +22,7 @@ function radixSort(nums) {
     let maxDigit = mostDigits(nums);
     for(let i = 0; i < maxDigit; i++) {
         let digitBuckets = Array.from({length: 10}, () => []);
+        console.log(digitBuckets);
         for(let j = 0; j < nums.length; j++) {
             let digit = getDigit(nums[j], i);
             digitBuckets[digit].push(nums[i]);
@@ -30,3 +31,5 @@ function radixSort(nums) {
     }
     return nums;
 }
+
+console.log(radixSort([12,123,23,3456,654,76,876]));

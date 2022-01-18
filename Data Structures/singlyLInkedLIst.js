@@ -107,7 +107,7 @@ class SinglyLinkedList {
         let temp = pre.next;
         pre.next = newNode;
         newNode.next = temp;
-        length++;
+        this.length++;
         return true;
     }
     remove(index) {
@@ -127,16 +127,16 @@ class SinglyLinkedList {
         return deletedNode;
     }
     reverse() {
-        let node = this.head;
+        let current = this.head;
         this.head = this.tail;
-        this.tail = node;
+        this.tail = current;
         let prev = null;
         let next;
         for (let i = 0; i < this.length; i++) {
-            next = node.next;
-            node.next = prev;
-            prev = node;
-            node = next;
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
         return this;
     }
