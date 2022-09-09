@@ -7,8 +7,8 @@ function merge(arr, arr2) {
         if (arr[i] < arr2[j]) {
             results.push(arr[i]);
             i++;
-        } else {
-            results.push(arr[j]);
+        } else if(arr2[j] < arr[i]){
+            results.push(arr2[j]);
             j++;
         }
     }
@@ -17,27 +17,20 @@ function merge(arr, arr2) {
         i++;
     }
     while (j < arr2.length) {
-        results.push(arr[j]);
+        results.push(arr2[j]);
         j++;
     }
     return results;
 }
 
 function mergeSort(arr) {
-    if(arr.length <= 1) {
+    if (arr.length <= 1) {
         return arr;
     }
-    let middle = Math.floor(arr.length/2);
+    let middle = Math.floor(arr.length / 2);
     let firstHalfArr = mergeSort(arr.slice(0, middle));
     let secondHalfArr = mergeSort(arr.slice(middle));
     return merge(firstHalfArr, secondHalfArr);
 }
 
 
-function mergeSort(arr){
-    if(arr.length <= 1) return arr;
-    let mid = Math.floor(arr.length/2);
-    let left = mergeSort(arr.slice(0,mid));
-    let right = mergeSort(arr.slice(mid));
-    return merge(left, right);
-}
